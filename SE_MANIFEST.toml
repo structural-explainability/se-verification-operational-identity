@@ -1,0 +1,86 @@
+# ============================================================
+# SE_MANIFEST.toml (Repository Declaration)
+# ============================================================
+
+schema = "se-manifest-schema"
+schema_version = "0.5.0"
+schema_url = "https://raw.githubusercontent.com/structural-explainability/se-manifest-schema/main/manifest-schema.toml"
+
+# === Framework Context ===
+
+[meta]
+framework = "Structural Explainability"
+framework_url = "https://github.com/structural-explainability"
+purpose = "Declares this repository's role in the Structural Explainability ecosystem."
+
+# === Repository Identity ===
+
+[repository]
+organization = "structural-explainability"
+name = "se-verification-operational-identity"
+class = "paper"
+kind = "verification"
+status = "active"
+since = "2026"
+summary = "Provides executable verification of the finite procedures, classifications, and constructions presented in Paper 210, Operational Identity."
+
+# === Layer Position ===
+
+[layer]
+space = "research"
+role = "mechanism-characterization"
+
+# === Dependency Declarations ===
+
+[depends]
+required = []
+optional = []
+
+# === Provided Artifacts ===
+
+[provides]
+artifacts = [
+    "src/se_verification_operational_identity",
+    "tests",
+    "README.md",
+]
+
+# === Validation ===
+
+[validation]
+entrypoint = "uv run pytest"
+strict_entrypoint = "uv run se-verification-operational-identity --random 20000 --seed 0"
+
+# === Scope ===
+
+[scope]
+includes = [
+    "quadratic reference implementation of the finite operational identity comparison",
+    "optimized partition-based implementation of the finite comparison procedure",
+    "differential testing between independent implementations",
+    "regression tests for the paper's examples, propositions, and divergence classifications",
+    "verification of the Proposition 5.5 pass-to-fail history-extension construction",
+    "randomized verification that failure persists under history extension",
+    "mutation tests for refinement direction, declared-class restriction, sibling classification, and regime substitution",
+]
+
+excludes = [
+    "discovery of identity-relevant mechanisms in deployed systems",
+    "empirical evaluation of a deployed record system",
+    "proof of registry completeness",
+    "proof of evaluated-surface completeness",
+    "proof of identified-use completeness",
+    "selection of the normatively correct identity regime",
+    "legal, causal, or institutional conclusions",
+]
+
+# === Citation ===
+
+[citation]
+cff = "CITATION.cff"
+preferred = "CITATION.cff"
+
+# === Traceability ===
+
+[traceability]
+identifier_map = "none"

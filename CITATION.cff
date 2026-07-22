@@ -1,0 +1,59 @@
+# ============================================================
+# CITATION.cff (How to cite this project)
+# ============================================================
+
+# REQ.UNIVERSAL: Professional open projects SHOULD include this file.
+# USAGE: See https://citation-file-format.github.io/ for details.
+
+cff-version: "1.2.0"
+type: software
+message: "If you use this work, please cite it using the metadata in this file."
+
+title: "Structural Explainability Verification: Operational Identity"
+version: "0.1.0"
+date-released: "2026-07-22"
+
+authors:
+  - family-names: Case
+    given-names: Denise M.
+    orcid: "https://orcid.org/0000-0001-6165-7389"
+    affiliation: "Northwest Missouri State University, School of Computer Science and Information Systems, Maryville, MO, USA"
+
+repository-code: "https://github.com/structural-explainability/se-verification-operational-identity"
+url: "https://github.com/structural-explainability/se-verification-operational-identity"
+
+license: MIT
+
+abstract: >
+  A Python verification harness for the finite procedures and constructions
+  presented in Paper SE-210, Operational Identity.
+  The software compares an explicit quadratic oracle with an
+  optimized partition-based implementation
+  and exercises faithfulness, divergence witnesses,
+  sibling-relative classification, regime substitution, and the
+  monotonic persistence of failure under history extension.
+
+keywords:
+  - structural-explainability
+  - operational-identity
+  - identity-regimes
+  - record-systems
+  - equivalence-relations
+  - partitions
+  - refinement
+  - verification
+  - differential-testing
+  - mutation-testing
+
+preferred-citation:
+  type: article
+  title: "Operational Identity: A Finite Audit of Declared and Implemented Rules of Sameness"
+  authors:
+    - family-names: Case
+      given-names: Denise M.
+      orcid: "https://orcid.org/0000-0001-6165-7389"
+  year: 2026
+  # identifiers:
+  #   - type: other
+  #     value: "arXiv:XXXX.XXXXX"
+  #     description: "arXiv preprint"
