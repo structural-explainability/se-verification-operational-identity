@@ -1,0 +1,88 @@
+{
+  "@context": "https://w3id.org/codemeta/3.1",
+  "@type": "SoftwareSourceCode",
+  "@id": "https://github.com/structural-explainability/se-verification-operational-identity",
+  "name": "SE Verification: Operational Identity",
+  "alternateName": "se-verification-operational-identity",
+  "description": "Executable verification of the finite procedures, classifications, constructions, algorithmic claims, and complexity claims presented in SE-210, Operational Identity.",
+  "codeRepository": "https://github.com/structural-explainability/se-verification-operational-identity",
+  "issueTracker": "https://github.com/structural-explainability/se-verification-operational-identity/issues",
+  "license": "https://spdx.org/licenses/MIT.html",
+  "version": "0.1.0",
+  "dateCreated": "2026",
+  "datePublished": "2026-07-22",
+  "programmingLanguage": {
+    "@type": "ComputerLanguage",
+    "name": "Python",
+    "url": "https://www.python.org/"
+  },
+  "runtimePlatform": "Python 3.14",
+  "operatingSystem": [
+    "Linux",
+    "macOS",
+    "Windows"
+  ],
+  "applicationCategory": "Research software",
+  "applicationSubCategory": "Executable verification",
+  "keywords": [
+    "structural explainability",
+    "operational identity",
+    "identity regimes",
+    "record systems",
+    "finite audit",
+    "partition refinement",
+    "differential testing",
+    "executable verification",
+    "research software"
+  ],
+  "author": {
+    "@type": "Person",
+    "@id": "https://orcid.org/0000-0001-6165-7389",
+    "givenName": "Denise M.",
+    "familyName": "Case"
+  },
+  "maintainer": {
+    "@type": "Person",
+    "@id": "https://orcid.org/0000-0001-6165-7389",
+    "givenName": "Denise M.",
+    "familyName": "Case"
+  },
+  "producer": {
+    "@type": "Organization",
+    "@id": "https://github.com/structural-explainability",
+    "name": "Structural Explainability",
+    "url": "https://github.com/structural-explainability"
+  },
+  "developmentStatus": "active",
+  "softwareRequirements": [
+    "Python >=3.14"
+  ],
+  "softwareHelp": "https://structural-explainability.github.io/se-verification-operational-identity/",
+  "downloadUrl": "https://pypi.org/project/se-verification-operational-identity/",
+  "installUrl": "https://pypi.org/project/se-verification-operational-identity/",
+  "buildInstructions": "https://github.com/structural-explainability/se-verification-operational-identity#development",
+  "continuousIntegration": "https://github.com/structural-explainability/se-verification-operational-identity/actions",
+  "releaseNotes": "https://github.com/structural-explainability/se-verification-operational-identity/releases/tag/v0.1.0",
+  "identifier": "https://doi.org/10.5281/zenodo.21499598",
+  "citation": {
+    "@type": "ScholarlyArticle",
+    "name": "Operational Identity: A Finite Audit of Declared and Implemented Rules of Sameness",
+    "author": {
+      "@type": "Person",
+      "@id": "https://orcid.org/0000-0001-6165-7389",
+      "givenName": "Denise M.",
+      "familyName": "Case"
+    },
+    "datePublished": "2026"
+  },
+  "isBasedOn": {
+    "@type": "ScholarlyArticle",
+    "name": "Operational Identity: A Finite Audit of Declared and Implemented Rules of Sameness",
+    "url": "https://github.com/structural-explainability/paper-210-operational-identity"
+  },
+  "relatedLink": [
+    "https://github.com/structural-explainability",
+    "https://github.com/structural-explainability/paper-210-operational-identity",
+    "https://github.com/structural-explainability/se-manifest-schema"
+  ]
+}

@@ -13,6 +13,11 @@ title: "Structural Explainability Verification: Operational Identity"
 version: "0.1.0"
 date-released: "2026-07-22"
 
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.21499598"
+    description: "Concept DOI for all versions"
+
 authors:
   - family-names: Case
     given-names: Denise M.

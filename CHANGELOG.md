@@ -49,8 +49,9 @@ Follow these steps exactly when creating a new release.
 ### Task 1. Update release metadata (manual edits)
 
 1.1. `CITATION.cff` - update `version` and `date-released`
-1.2. CHANGELOG.md: add section, move unreleased entries, update links
+1.2. `CHANGELOG.md` - add section, move unreleased entries, update links
 1.3. `pyproject.toml` - update build system `fallback-version`
+1.4. `codemeta.json` - update `version` and `datePublished`
 
 ### Task 2. Validate
 
@@ -98,17 +99,19 @@ The release workflow creates a GitHub Release automatically.
 To verify:
 
 ```shell
-gh release view vX.Y.Z          # confirm the Release exists with notes + artifacts
+gh release view vX.Y.Z                    # confirm Release exists with notes + artifacts
 gh run list --workflow=release-pypi.yml   # confirm the workflow succeeded
 ```
 
-Confirm Zenodo (GitHub tab) shows a version DOI for this release.
+Confirm Zenodo shows a new version-specific DOI for this release
+and that it remains linked under the
+repository's [concept DOI](https://zenodo.org/records/21499598).
 
 ## Only As Needed (delete a tag)
 
 ```shell
-git tag -d vX.Z.Y
-git push origin :refs/tags/vX.Z.Y
+git tag -d vX.Y.Z
+git push origin :refs/tags/vX.Y.Z
 ```
 
 ## Links

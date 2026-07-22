@@ -14,13 +14,13 @@
 [![Links](https://github.com/structural-explainability/se-verification-operational-identity/actions/workflows/links.yml/badge.svg?branch=main)](https://github.com/structural-explainability/se-verification-operational-identity/actions/workflows/links.yml)
 [![Dependabot](https://img.shields.io/badge/Dependabot-enabled-brightgreen.svg)](https://github.com/structural-explainability/se-verification-operational-identity/security)
 
-> A reference-implementation check for the **finite mathematical core** of
+> Executable verification of the **finite mathematical core** of
 > SE-210, _Operational Identity: A Finite Audit of Declared and Implemented Rules
 > of Sameness_.
 
 ## Purpose
 
-The purpose of this project is to confirm the algorithmic
+The purpose of this project is to confirm that the algorithmic
 and complexity claims are internally correct.
 It tests the core once `R`, the partitions, surfaces, and uses are supplied.
 
@@ -50,7 +50,8 @@ The diff runs across three sources of instances:
   2) unpositioned;
   3) sibling-aligned with substitution (Ex. 4.11);
   4) aligned without substitution (Prop. 4.14);
-  5) sub-sibling (Prop. 4.15 and the Section 6 `ruleTextVersion` worked example (the same construction);
+  5) sub-sibling (Prop. 4.15 and the Section 6 `ruleTextVersion` worked example
+     which uses the same construction;
   6) super-sibling (Rem. 4.16c);
   and 7) sibling-incomparable (Rem. 4.16d);
 - an **exhaustive-small** deterministic sweep of 180 instances over 3 records,
@@ -87,10 +88,11 @@ uvx se-verification-operational-identity
 uvx se-verification-operational-identity --random 20000 --seed 0
 ```
 
-Nonzero exit from `se_verification_operational_identity.check` means a real disagreement: either the
-optimized procedure or the paper wording needs correction.
+A nonzero exit from `se-verification-operational-identity` means a real
+disagreement:
+either the optimized procedure or the paper wording needs correction.
 
-## Family classifications used
+## Family Classifications
 
 | family           | RULE-C | RULE-S |     | family | LOC | OBJ |
 | ---------------- | ------ | ------ | --- | ------ | --- | --- |
