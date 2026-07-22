@@ -46,12 +46,17 @@ regime substitution.
 The diff runs across three sources of instances:
 
 - the **seven regression cases** taken verbatim from the paper.
-  These are 1) faithful/pass; 2) unpositioned; 3) sibling-aligned with substitution (Ex. 4.11); 4) aligned without substitution (Prop. 4.14); 5) sub-sibling (Prop. 4.15 and the Section 6 `ruleTextVersion` worked example
-  which uses the same construction; 6) super-sibling (Rem. 4.16c);
-  and 7) sibling-incomparable (Rem. 4.16d);
+  These are
+  faithful/pass;
+  unpositioned;
+  sibling-aligned with substitution (Ex. 4.11);
+  aligned without substitution (Prop. 4.14);
+  sub-sibling (Prop. 4.15 and the Section 6 `ruleTextVersion` worked example
+  which uses the same construction;
+  super-sibling (Rem. 4.16c);
+  and sibling-incomparable (Rem. 4.16d);
 - an **exhaustive-small** deterministic sweep of 180 instances over 3 records,
-  covering every classification pair, every surface value-partition, and four
-  histories;
+  covering every classification pair, every surface value-partition, and four histories;
 - a **randomized** batch, 20,000 instances by default.
 
 Alongside the diff, the harness checks three properties directly:
