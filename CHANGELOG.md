@@ -92,6 +92,16 @@ git tag vX.Y.Z -m "X.Y.Z"
 git push origin vX.Y.Z
 ```
 
+### Task 4. Publish a Release (needed for Zenodo)
+
+Example command:
+
+```shell
+gh release create v0.1.0 \
+  --title "v0.1.0" \
+  --notes "SE-210 verification harness v0.1.0: two independent checkers, differential and mutation tests, regression cases for the paper's constructions."
+  ```
+
 ## Only As Needed (delete a tag)
 
 ```shell
