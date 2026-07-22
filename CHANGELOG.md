@@ -92,15 +92,17 @@ git tag vX.Y.Z -m "X.Y.Z"
 git push origin vX.Y.Z
 ```
 
-### Task 4. Publish a Release (needed for Zenodo)
+### Task 4. Verify the Release and Zenodo archive
 
-Example command:
+The release workflow creates a GitHub Release automatically.
+To verify:
 
 ```shell
-gh release create v0.1.0 \
-  --title "v0.1.0" \
-  --notes "SE-210 verification harness v0.1.0: two independent checkers, differential and mutation tests, regression cases for the paper's constructions."
-  ```
+gh release view vX.Y.Z          # confirm the Release exists with notes + artifacts
+gh run list --workflow=release-pypi.yml   # confirm the workflow succeeded
+```
+
+Confirm Zenodo (GitHub tab) shows a version DOI for this release.
 
 ## Only As Needed (delete a tag)
 

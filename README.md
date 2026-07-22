@@ -5,6 +5,7 @@
 [![Repo](https://img.shields.io/badge/repo-GitHub-black?logo=github)](https://github.com/structural-explainability/se-verification-operational-identity)
 [![Python 3.14](https://img.shields.io/badge/python-3.14%2B-blue?logo=python)](./pyproject.toml)
 [![License](https://img.shields.io/badge/license-MIT-yellow.svg)](./LICENSE)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21499598.svg)](https://doi.org/10.5281/zenodo.21499598)
 
 [![CI](https://github.com/structural-explainability/se-verification-operational-identity/actions/workflows/ci-python-zensical.yml/badge.svg?branch=main)](https://github.com/structural-explainability/se-verification-operational-identity/actions/workflows/ci-python-zensical.yml)
 [![Docs-Deploy](https://github.com/structural-explainability/se-verification-operational-identity/actions/workflows/deploy-zensical.yml/badge.svg?branch=main)](https://github.com/structural-explainability/se-verification-operational-identity/actions/workflows/deploy-zensical.yml)
