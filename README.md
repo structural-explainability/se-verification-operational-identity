@@ -196,6 +196,10 @@ git push
 
 </details>
 
+## Paper Links
+
+- [Operational Identity Paper: GitHub Repository](https://github.com/structural-explainability/paper-210-operational-identity)
+
 ## Citation
 
 [CITATION.cff](./CITATION.cff)
