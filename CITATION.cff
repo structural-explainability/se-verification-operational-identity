@@ -10,7 +10,7 @@ type: software
 message: "If you use this work, please cite it using the metadata in this file."
 
 title: "Structural Explainability Verification: Operational Identity"
-version: "0.2.0"
+version: "0.2.1"
 date-released: "2026-10-28"
 
 identifiers:

@@ -13,6 +13,14 @@ and this project adheres to **[Semantic Versioning](https://semver.org/spec/v2.0
 
 ---
 
+## [0.2.1] - 2026-10-28
+
+### Changed
+
+- README and documentation fixes, minor but helpful
+
+---
+
 ## [0.2.0] - 2026-10-28
 
 ### Changed
@@ -43,8 +51,8 @@ and this project adheres to **[Semantic Versioning](https://semver.org/spec/v2.0
 - Branch coverage reporting.
 - Thirteen seeded faults in the fast checker and two shared misreadings that
   only the paper cases and property checks can catch.
-- `--emit-lean`, which writes conformance vectors checked by the Lean
-  formalization.
+- `--emit-lean`, which generates conformance vectors for independent
+  checking against the Lean formalization.
 
 ### Removed
 
@@ -79,8 +87,9 @@ and this project adheres to **[Semantic Versioning](https://semver.org/spec/v2.0
   - **MAJOR** - breaking changes
   - **MINOR** - backward-compatible features
   - **PATCH** - fixes, documentation, tests, tooling
-- Versions are driven by git tags. Tag `vX.Y.Z` to release.
-- Docs are deployed per version tag and aliased to **latest**.
+
+Versions are driven by git tags.
+Tag `vX.Y.Z` to release.
 
 ## Release Procedure (Required)
 
@@ -91,7 +100,6 @@ Follow these steps exactly when creating a new release.
 1.1. `CITATION.cff` - update `version` and `date-released`
 1.2. `CHANGELOG.md` - add section, move unreleased entries, update links, update release command
 1.3. `pyproject.toml` - update build system `fallback-version`
-1.4. `codemeta.json` - update `version` and `datePublished`
 
 ### Task 2. Set up and Validate
 
@@ -141,11 +149,11 @@ git tag vX.Y.Z -m "X.Y.Z"
 git push origin vX.Y.Z
 ```
 
-After it succeeds, for a major revision, create a release:
+The `release-pypi.yml` workflow automatically creates the GitHub Release
+and uploads the validated distribution artifacts.
 
-```shell
-gh release create v0.2.0 --verify-tag --title "v0.2.0" --generate-notes
-```
+Do not create a second release manually.
+Verify the automated release in Task 5.
 
 ### Task 5. Verify the Release and Zenodo archive
 
@@ -170,7 +178,8 @@ git push origin :refs/tags/vX.Y.Z
 
 ## Links
 
-[Unreleased]: https://github.com/structural-explainability/se-verification-operational-identity/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/structural-explainability/se-verification-operational-identity/compare/v0.2.1...HEAD
+[0.2.1]: https://github.com/structural-explainability/se-verification-operational-identity/releases/tag/v0.2.1
 [0.2.0]: https://github.com/structural-explainability/se-verification-operational-identity/releases/tag/v0.2.0
 [0.1.0]: https://github.com/structural-explainability/se-verification-operational-identity/releases/tag/v0.1.0
 

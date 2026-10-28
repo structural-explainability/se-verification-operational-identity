@@ -3,7 +3,7 @@
 [![PyPI](https://img.shields.io/pypi/v/se-verification-operational-identity?logo=pypi&label=pypi)](https://pypi.org/project/se-verification-operational-identity/)
 [![Docs Site](https://img.shields.io/badge/docs-site-blue?logo=github)](https://structural-explainability.github.io/se-verification-operational-identity/)
 [![Repo](https://img.shields.io/badge/repo-GitHub-black?logo=github)](https://github.com/structural-explainability/se-verification-operational-identity)
-[![Python 3.14](https://img.shields.io/badge/python-3.14%2B-blue?logo=python)](./pyproject.toml)
+[![Python 3.15](https://img.shields.io/badge/python-3.15%2B-blue?logo=python)](./pyproject.toml)
 [![License](https://img.shields.io/badge/license-Apache--2.0-yellow.svg)](./LICENSE)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21499598.svg)](https://doi.org/10.5281/zenodo.21499598)
 
@@ -124,24 +124,28 @@ property checks to catch it.
 Lean theorems about `SE.OperationalIdentity`, each closed by `decide`.
 Lean then checks the verdict, the divergence position, and whether the
 operational partition equals the alternative, using its own definitions.
+
 Copy the generated file to `SETest/OperationalIdentity/Vectors.lean` in
-`se-verification-operational-identity` and build it there.
+`se-theory-operational-identity` and run `lake test` there.
+The Python CI checks vector generation but does not compile the generated
+Lean file.
 
 ## Run
 
-```bash
-uv sync --extra dev --extra docs --upgrade
+```shell
+uv sync --locked
 
-uvx se-verification-operational-identity
+# Run the current checkout.
+uv run --locked se-verification-operational-identity
 
-# or with args
-uvx se-verification-operational-identity --random 20000 --seed 0
+# Larger randomized verification.
+uv run --locked se-verification-operational-identity --random 20000 --seed 0
 
-# larger exhaustive sweeps
-uvx se-verification-operational-identity --deep
+# Larger exhaustive sweeps.
+uv run --locked se-verification-operational-identity --deep
 
-# write Lean conformance vectors
-uvx se-verification-operational-identity --emit-lean Vectors.lean
+# Generate Lean conformance vectors.
+uv run --locked se-verification-operational-identity --emit-lean Vectors.lean
 ```
 
 A nonzero exit from `se-verification-operational-identity` means a real
@@ -150,17 +154,75 @@ either the optimized procedure or the paper wording needs correction.
 
 ## Stipulated Licences
 
-The paper's examples stipulate which steps are licensed.
-They are assumptions of the examples,
-not a rule that a family label licenses a step.
+The examples in Paper 210 compare different criteria for deciding
+whether a record retains its identity after a transformation.
 
-lu="licensed under"
+A **licence** permits a particular transformation step to connect
+two records as representations of the same continuing referent.
 
-| family           | lu RULE-C | lu RULE-S |     | family | lu LOC | lu OBJ |
-| ---------------- | --------- | --------- | --- | ------ | ------ | ------ |
-| refine-structure | yes       | no        |     | BF     | yes    | no     |
-| revise-wording   | yes       | yes       |     |        |        |        |
-| amend-content    | no        | yes       |     |        |        |        |
+Where:
+
+- **Family** identifies the type of transformation applied to a record.
+- **RULE-C** means content-fixed rule identity. A rule retains its
+  identity when its substantive content remains unchanged.
+- **RULE-S** means structure-fixed rule identity. A rule retains its
+  identity when its section structure remains unchanged.
+- **LOC** means locus-fixed identity. A monitoring station retains
+  its identity through continuity of its location.
+- **OBJ** means object-fixed identity. A monitoring station retains
+  its identity through continuity of its physical sensor object.
+- **BF** means branch/fork: a transformation creating multiple
+  continuation records from one preceding record.
+- **Yes** means the example stipulates that the step is licensed
+  under that identity criterion.
+- **No** means the step is not licensed under that criterion
+  and contributes no identity-continuation edge.
+
+### Example 1. Rule Transformations
+
+The following transformations distinguish content-fixed from
+structure-fixed rule identity.
+
+| Transformation family | Description                                                      | RULE-C | RULE-S |
+| --------------------- | ---------------------------------------------------------------- | ------ | ------ |
+| `refine-structure`    | Reorganize sections without changing rule content                | Yes    | No     |
+| `revise-wording`      | Reword for clarity without changing content or section structure | Yes    | Yes    |
+| `amend-content`       | Change rule content while preserving section structure           | No     | Yes    |
+
+For example, `refine-structure` preserves identity under RULE-C but not RULE-S.
+Conversely, `amend-content` preserves identity under RULE-S but not RULE-C.
+
+### Example 2. Monitoring Station Fork
+
+The paper considers a monitoring station at a fixed location
+whose record branches into two continuation records, each
+using a different physical sensor.
+
+| Transformation family | Description                                                                  | LOC | OBJ |
+| --------------------- | ---------------------------------------------------------------------------- | --- | --- |
+| `BF`                  | Fork the station record at the same location, using different sensor objects | Yes | No  |
+
+The fork steps are licensed under LOC because the location continues,
+but not under OBJ because the physical sensor objects differ.
+
+### Important Qualification
+
+These tables describe **stipulated licences for the specific examples**,
+not universal rules about transformation families.
+
+A transformation-family label alone never establishes identity
+continuation.
+Each actual step requires an independently justified licence
+under the relevant identity criterion.
+
+Only licensed steps contribute edges to a history-generated identity relation.
+The resulting equivalence relation includes
+their reflexive, symmetric, and transitive closure.
+
+The verification examples implement these stipulations in
+`audit_cases.py`.
+The general audit also accepts directly supplied identity partitions
+without constructing them from a history.
 
 ## Example Command Output
 
@@ -203,12 +265,9 @@ operation counts (supporting evidence, not a proof of the bound):
 RESULT: all checks passed
 ```
 
-## Developer Command Reference
+## Developer
 
-<details>
-<summary>Show command reference</summary>
-
-### In a machine terminal
+### Clone and Open in VS Code
 
 Open a machine terminal where you want the project:
 
@@ -219,21 +278,24 @@ cd se-verification-operational-identity
 code .
 ```
 
-### In a VS Code terminal
+### Set Up Environment and Run Commands
 
 ```shell
+# set up or update Python environment
+uvx pup-clean --delete
 uv self update
-uv python pin 3.14
+uv python install
 uv lock --upgrade
-uv sync --extra dev --extra docs --upgrade
+uv sync
+uv audit
 
-uvx pre-commit install
-uvx pre-commit autoupdate
-
+# set up and run git hooks
+uvx prek install --force
+uvx prek update
 git add -A
-uvx pre-commit run --all-files
+uvx prek run --all-files
 # repeat if changes were made
-uvx pre-commit run --all-files
+uvx prek run --all-files
 
 # run locally with defaults
 uv run se-verification-operational-identity
@@ -245,39 +307,17 @@ uv run se-verification-operational-identity --random 20000 --seed 0
 # disagreement: either the optimized procedure or the paper wording needs
 # correction.
 
-# types, tests, docs
-uv run pyright
-uv run pytest
-uv run zensical build
+# run common chores
+uv run ruff format .
+uv run ruff check . --fix
+uv run ty check
+uv run python -m pytest
+uv run python -m zensical build
 
 # save progress
 git add -A
 git commit -m "update"
 git push -u origin main
-```
-
-Merging GH Agent code example
-
-```shell
-git fetch origin copilot/analyze-test-coverage
-git switch copilot/analyze-test-coverage
-uv sync --extra dev --extra docs --upgrade
-uvx pre-commit run --all-files
-git status
-
-git add -A
-uvx pre-commit run --all-files
-
-uv run pyright
-uv run pytest
-
-uv run se-verification-operational-identity --random 20000 --seed 0
-
-uv run zensical build
-
-git add -A
-git commit -m "fix copilot generated test formatting"
-git push
 ```
 
 </details>

@@ -7,10 +7,8 @@
   "description": "Executable evidence that the finite audit of SE-210, Operational Identity, is implemented as the paper defines it: independent derivations, paper-case regressions, property checks, and Lean conformance vectors.",
   "codeRepository": "https://github.com/structural-explainability/se-verification-operational-identity",
   "issueTracker": "https://github.com/structural-explainability/se-verification-operational-identity/issues",
-  "license": "https://spdx.org/licenses/MIT.html",
-  "version": "0.2.0",
+  "license": "https://spdx.org/licenses/Apache-2.0.html",
   "dateCreated": "2026",
-  "datePublished": "2026-10-28",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "Python",
@@ -54,9 +52,8 @@
   "softwareHelp": "https://structural-explainability.github.io/se-verification-operational-identity/",
   "downloadUrl": "https://pypi.org/project/se-verification-operational-identity/",
   "installUrl": "https://pypi.org/project/se-verification-operational-identity/",
-  "buildInstructions": "https://github.com/structural-explainability/se-verification-operational-identity#development",
+  "buildInstructions": "https://github.com/structural-explainability/se-verification-operational-identity#developer",
   "continuousIntegration": "https://github.com/structural-explainability/se-verification-operational-identity/actions",
-  "releaseNotes": "https://github.com/structural-explainability/se-verification-operational-identity/releases/tag/v0.1.0",
   "identifier": "https://doi.org/10.5281/zenodo.21499598",
   "citation": {
     "@type": "ScholarlyArticle",
