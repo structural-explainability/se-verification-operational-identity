@@ -3,7 +3,7 @@
 # ============================================================
 
 schema = "se-manifest-schema"
-schema_version = "0.5.0"
+schema_version = "0.5.2"
 schema_url = "https://raw.githubusercontent.com/structural-explainability/se-manifest-schema/main/manifest-schema.toml"
 
 # === Framework Context ===
@@ -18,32 +18,31 @@ purpose = "Declares this repository's role in the Structural Explainability ecos
 [repository]
 organization = "structural-explainability"
 name = "se-verification-operational-identity"
-class = "paper"
+class = "verification"
 kind = "verification"
 status = "active"
 since = "2026"
-summary = "Provides executable verification of the finite procedures, classifications, and constructions presented in Paper 210, Operational Identity."
-
+summary = "Provides executable evidence that the finite audit of Paper 210, Operational Identity, is implemented as the paper defines it, using independent derivations, paper-case regressions, property checks, and Lean conformance vectors."
 # === Layer Position ===
 
 [layer]
 space = "research"
-role = "mechanism-characterization"
+role = "verification"
 
 # === Dependency Declarations ===
 
 [depends]
-required = []
-optional = []
+required = [
+    { repository = "paper-210-operational-identity", kind = "semantic", reason = "Defines the finite audit, its definitions, propositions, and examples that this repository checks." },
+]
+optional = [
+    { repository = "se-theory-operational-identity", kind = "semantic", reason = "Lean 4 formalization that checks the generated conformance vectors with its own definitions." },
+]
 
 # === Provided Artifacts ===
 
 [provides]
-artifacts = [
-    "src/se_verification_operational_identity",
-    "tests",
-    "README.md",
-]
+artifacts = ["src/se_verification_operational_identity", "tests", "README.md"]
 
 # === Validation ===
 
@@ -55,13 +54,19 @@ strict_entrypoint = "uv run se-verification-operational-identity --random 20000 
 
 [scope]
 includes = [
-    "quadratic reference implementation of the finite operational identity comparison",
-    "optimized partition-based implementation of the finite comparison procedure",
-    "differential testing between independent implementations",
-    "regression tests for the paper's examples, propositions, and divergence classifications",
-    "verification of the Proposition 5.5 pass-to-fail history-extension construction",
-    "randomized verification that failure persists under history extension",
-    "mutation tests for refinement direction, declared-class restriction, sibling classification, and regime substitution",
+    "oracle, fast, and edge-characterization derivations of the audit that share only data classes",
+    "declared relations supplied as partitions or generated from individually licensed steps",
+    "audits relative to a supplied alternative relation",
+    "substitution with a divergence witness and substitution with a pass",
+    "three-valued verdicts under explicit warrants, surface control, and computability",
+    "store composition and the joint surface",
+    "exhaustive partition sweeps and licence sweeps over small domains",
+    "randomized differential testing with branch coverage reporting",
+    "property checks for the paper's propositions",
+    "paper-case regressions tagged with paper labels",
+    "seeded faults in one checker and in both",
+    "operation counts for the closure step as supporting evidence",
+    "generated Lean conformance vectors",
 ]
 
 excludes = [
@@ -72,7 +77,19 @@ excludes = [
     "proof of identified-use completeness",
     "selection of the normatively correct identity regime",
     "legal, causal, or institutional conclusions",
+    "proof of the asymptotic bound of the decidability theorem",
+    "proof that the implementations match the paper",
 ]
+
+# === Naming ===
+
+[naming]
+pattern = "se-verification-*"
+
+# === Governance ===
+
+[governance]
+authority = "structural-explainability"
 
 # === Citation ===
 

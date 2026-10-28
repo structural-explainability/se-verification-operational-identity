@@ -10,8 +10,8 @@ type: software
 message: "If you use this work, please cite it using the metadata in this file."
 
 title: "Structural Explainability Verification: Operational Identity"
-version: "0.1.0"
-date-released: "2026-07-22"
+version: "0.2.0"
+date-released: "2026-10-28"
 
 identifiers:
   - type: doi
@@ -27,16 +27,28 @@ authors:
 repository-code: "https://github.com/structural-explainability/se-verification-operational-identity"
 url: "https://github.com/structural-explainability/se-verification-operational-identity"
 
-license: MIT
+license: Apache-2.0
+
+preferred-citation:
+  type: article
+  title: "Operational Identity: A Finite Audit of Declared and Implemented Rules of Sameness"
+  authors:
+    - family-names: Case
+      given-names: Denise M.
+      orcid: "https://orcid.org/0000-0001-6165-7389"
+  year: 2026
+  doi: "10.48550/arXiv.2607.20729"
 
 abstract: >
-  A Python verification harness for the finite procedures and constructions
-  presented in Paper SE-210, Operational Identity.
-  The software compares an explicit quadratic oracle with an
-  optimized partition-based implementation
-  and exercises faithfulness, divergence witnesses,
-  sibling-relative classification, regime substitution, and the
-  monotonic persistence of failure under history extension.
+  A Python verification harness for the finite audit of Paper SE-210,
+  Operational Identity.
+  Three independent derivations of the audit (an explicit-relation oracle,
+  a partition-label procedure, and an edge characterization) read the same
+  raw data and share only data classes.
+  The harness checks them against each other, against the paper's cases,
+  against properties the paper states, and against conformance vectors
+  checked by the Lean formalization.
+  It provides evidence, not proof.
 
 keywords:
   - structural-explainability
@@ -49,16 +61,4 @@ keywords:
   - verification
   - differential-testing
   - mutation-testing
-
-preferred-citation:
-  type: article
-  title: "Operational Identity: A Finite Audit of Declared and Implemented Rules of Sameness"
-  authors:
-    - family-names: Case
-      given-names: Denise M.
-      orcid: "https://orcid.org/0000-0001-6165-7389"
-  year: 2026
-  # identifiers:
-  #   - type: other
-  #     value: "arXiv:XXXX.XXXXX"
-  #     description: "arXiv preprint"
+  - conformance-vectors

@@ -4,24 +4,20 @@
   "@id": "https://github.com/structural-explainability/se-verification-operational-identity",
   "name": "SE Verification: Operational Identity",
   "alternateName": "se-verification-operational-identity",
-  "description": "Executable verification of the finite procedures, classifications, constructions, algorithmic claims, and complexity claims presented in SE-210, Operational Identity.",
+  "description": "Executable evidence that the finite audit of SE-210, Operational Identity, is implemented as the paper defines it: independent derivations, paper-case regressions, property checks, and Lean conformance vectors.",
   "codeRepository": "https://github.com/structural-explainability/se-verification-operational-identity",
   "issueTracker": "https://github.com/structural-explainability/se-verification-operational-identity/issues",
   "license": "https://spdx.org/licenses/MIT.html",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "dateCreated": "2026",
-  "datePublished": "2026-07-22",
+  "datePublished": "2026-10-28",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "Python",
     "url": "https://www.python.org/"
   },
-  "runtimePlatform": "Python 3.14",
-  "operatingSystem": [
-    "Linux",
-    "macOS",
-    "Windows"
-  ],
+  "runtimePlatform": "Python 3.15",
+  "operatingSystem": ["Linux", "macOS", "Windows"],
   "applicationCategory": "Research software",
   "applicationSubCategory": "Executable verification",
   "keywords": [
@@ -54,9 +50,7 @@
     "url": "https://github.com/structural-explainability"
   },
   "developmentStatus": "active",
-  "softwareRequirements": [
-    "Python >=3.14"
-  ],
+  "softwareRequirements": ["Python >=3.15"],
   "softwareHelp": "https://structural-explainability.github.io/se-verification-operational-identity/",
   "downloadUrl": "https://pypi.org/project/se-verification-operational-identity/",
   "installUrl": "https://pypi.org/project/se-verification-operational-identity/",
